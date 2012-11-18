@@ -10,19 +10,17 @@ using namespace std;
 class Vector3
 {
 public:
-	//Overloaded Constructor so it can take all three values or none at all.
-	//made an empty constructor in case I find some reason someone would
-	//want to make an empty vector.
+	/*
+	Conctructors
+	*/
 
 	Vector3(){}
 	Vector3(float i, float j, float k);
 	~Vector3() {}
 
 	float length();
-
 	Vector3 normalize();
-
-	void showinfo(); //shows the vector's values.
+	void getinfo(); //shows the vector's values.
 	void setinfo();
 	
 	/*
@@ -102,7 +100,7 @@ Vector3 Vector3::normalize()
 	return Vector3(i,j,k);
 }
 
-void Vector3::showinfo()
+void Vector3::getinfo()
 {
 	cout << "\nx: " << itsx;
 	cout << " y: " << itsy;
@@ -155,7 +153,7 @@ Vector3 Vector3::operator+ (Vector3 &vector2)
 }
 void Vector3::operator-= (Vector3 &vector2)
 {
-	//same idea as +=, but with subtraction
+	//same idea as +=, but with subtraction.
 
 	itsx -= vector2.itsx;
 	itsy -= vector2.itsy;
@@ -172,8 +170,8 @@ Vector3 Vector3::operator - (Vector3 &vector2)
 void Vector3::operator *= (const float value)
 {
 	/*
-	This is element wise multiplication
-	It will change the vector you are working with
+	This is element wise multiplication.
+	It will change the vector you are working with.
 	*/
 	
 	itsx *= value;
@@ -182,7 +180,7 @@ void Vector3::operator *= (const float value)
 }
 Vector3 Vector3::operator* (const float value)
 {
-	//element wise multiplication making a new vector
+	//element wise multiplication making a new vector.
 	return Vector3(value*itsx, value*itsy, value*itsz);
 }
 Vector3 Vector3::operator^ (Vector3 &vector2)
